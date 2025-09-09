@@ -2,42 +2,88 @@ import streamlit as st
 import os
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 from dotenv import load_dotenv
+import json
+import re
 
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+def get_medical_appointment_chain():
+    prompt_template = """
+Tu es un assistant pour un cabinet médical. Analyse la demande et réponds en format JSON avec :
 
-def get_conversational_chain():
-    prompt_template="""answer the question as detailed as possible from the provided context,
-    make sure to provide all the details,if the answer is not in the provided context,
-    just say "I am sorry, answer is not avaible in this context" don't provide a wrong answer\n\n
-    Context: {context} \n\n
-    Quetion: {question} \n\n"""
+1. "classification" : "RESERVATION" ou "MESSAGE"
+2. Si RESERVATION, extrais :
+   - "heure" : l'heure mentionnée ou "NON_SPECIFIE"
+   - "date" : la date mentionnée ou "NON_SPECIFIE" 
+   - "nom_docteur" : le nom du médecin ou "NON_SPECIFIE"
 
-    model=ChatGoogleGenerativeAI(model="gemini-2.0-flash")
-    prompt=PromptTemplate( template=prompt_template,input_variables=["question"])
-    chain=load_qa_chain(llm=model,chain_type="stuff",prompt=prompt)
+Exemples :
+"Je veux un RDV avec Dr Martin lundi 10h" -> {{"classification": "RESERVATION", "heure": "10h", "date": "lundi", "nom_docteur": "Dr Martin"}}
+"Message pour Dr Paul" -> {{"classification": "MESSAGE", "heure": "NON_APPLICABLE", "date": "NON_APPLICABLE", "nom_docteur": "Dr Paul"}}
+
+Demande: {user_input}
+Réponse JSON:
+"""
+
+    model = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", temperature=0.1)
+    prompt = PromptTemplate(template=prompt_template, input_variables=["user_input"])
+    chain = LLMChain(llm=model, prompt=prompt)
     return chain
 
-def user_input(user_question):
-    chain=get_conversational_chain()
-    response = chain(
-        {"question": user_question}
-        , return_only_outputs=True)
-
-    print(response)
-    st.write("", response["output_text"])
+def parse_llm_response(response_text):
+    try:
+        json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+        if json_match:
+            json_str = json_match.group()
+            return json.loads(json_str)
+        else:
+            return None
+    except json.JSONDecodeError:
+        return None
 
 def main():
-    st.set_page_config(page_title="Question Answering")
-    st.header("ask any information from your docs")
-    user_question= st.text_input("enter your question")
-    if user_question:
-        user_input(user_question)
+    st.title("Assistant Réservation Médicale")
+    st.subheader("Système de gestion des demandes patients")
+    
+    st.write("Saisir votre demande")
+    user_input = st.text_area("", placeholder="Exemple: Je veux un rendez-vous avec Dr Martin demain à 14h", height=100)
+    
+    if st.button("Analyser"):
+        if user_input.strip():
+            try:
+                chain = get_medical_appointment_chain()
+                response = chain.run(user_input=user_input.strip())
+                parsed_result = parse_llm_response(response)
+                
+                if parsed_result:
+                    classification = parsed_result.get('classification', 'INCONNU')
+                    
+                    if classification == "RESERVATION":
+                        st.write("Classification: RESERVATION")
+                        heure = parsed_result.get('heure', 'NON_SPECIFIE')
+                        date = parsed_result.get('date', 'NON_SPECIFIE')
+                        docteur = parsed_result.get('nom_docteur', 'NON_SPECIFIE')
+                        st.write(f"Heure: {heure}")
+                        st.write(f"Date: {date}")
+                        st.write(f"Médecin: {docteur}")
+                    elif classification == "MESSAGE":
+                        st.write("Classification: MESSAGE")
+                        docteur = parsed_result.get('nom_docteur', 'NON_SPECIFIE')
+                        st.write(f"Message pour: {docteur}")
+                    else:
+                        st.write("Classification: Non reconnue")
+                else:
+                    st.write("Erreur: Impossible d'analyser la demande")
+                    
+            except Exception as e:
+                st.write(f"Erreur: {str(e)}")
+        else:
+            st.write("Veuillez saisir une demande")
 
 if __name__ == "__main__":
-    main()    
+    main()
