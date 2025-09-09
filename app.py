@@ -16,15 +16,27 @@ def get_medical_appointment_chain():
     prompt_template = """
 Tu es un assistant pour un cabinet médical. Analyse la demande et réponds en format JSON avec :
 
-1. "classification" : "RESERVATION" ou "MESSAGE"
+IMPORTANT: Tu dois d'abord vérifier si la demande concerne le domaine médical (médecin, docteur, consultation, rendez-vous médical, cabinet médical, etc.)
+
+1. "classification" : 
+   - "RESERVATION" : si c'est une demande de rendez-vous médical
+   - "MESSAGE" : si c'est un message pour un médecin
+   - "HORS_SUJET" : si ce n'est pas lié au domaine médical
+
 2. Si RESERVATION, extrais :
    - "heure" : l'heure mentionnée ou "NON_SPECIFIE"
    - "date" : la date mentionnée ou "NON_SPECIFIE" 
    - "nom_docteur" : le nom du médecin ou "NON_SPECIFIE"
 
+3. Si MESSAGE, extrais :
+   - "nom_docteur" : le nom du médecin ou "NON_SPECIFIE"
+
 Exemples :
 "Je veux un RDV avec Dr Martin lundi 10h" -> {{"classification": "RESERVATION", "heure": "10h", "date": "lundi", "nom_docteur": "Dr Martin"}}
 "Message pour Dr Paul" -> {{"classification": "MESSAGE", "heure": "NON_APPLICABLE", "date": "NON_APPLICABLE", "nom_docteur": "Dr Paul"}}
+"Je veux réserver un livre à la bibliothèque" -> {{"classification": "HORS_SUJET"}}
+"Réserver une table au restaurant" -> {{"classification": "HORS_SUJET"}}
+"RDV chez le coiffeur demain" -> {{"classification": "HORS_SUJET"}}
 
 Demande: {user_input}
 Réponse JSON:
@@ -71,10 +83,14 @@ def main():
                         st.write(f"Heure: {heure}")
                         st.write(f"Date: {date}")
                         st.write(f"Médecin: {docteur}")
+                        
                     elif classification == "MESSAGE":
                         st.write("Classification: MESSAGE")
                         docteur = parsed_result.get('nom_docteur', 'NON_SPECIFIE')
                         st.write(f"Message pour: {docteur}")
+                        
+                    elif classification == "HORS_SUJET":
+                        st.write("Classification: HORS_SUJET")         
                     else:
                         st.write("Classification: Non reconnue")
                 else:
