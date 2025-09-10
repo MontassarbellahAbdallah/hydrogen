@@ -58,7 +58,7 @@ def get_few_shot_examples():
     return examples
 
 def create_prompt(user_input):
-    """Créer le prompt few-shot pour Ollama"""
+    """prompt few-shot pour Ollama"""
     examples = get_few_shot_examples()
     
     prompt = """Tu es un assistant pour un cabinet médical. Analyse les demandes et réponds UNIQUEMENT en format JSON.
@@ -100,10 +100,7 @@ def query_ollama(prompt):
 def parse_response(response_text):
     """Parser la réponse JSON d'Ollama"""
     try:
-        # Nettoyer la réponse (enlever texte avant/après JSON)
         response_text = response_text.strip()
-        
-        # Chercher le JSON dans la réponse
         json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
         if json_match:
             json_str = json_match.group()
@@ -124,13 +121,8 @@ def main():
         if user_input.strip():
             try:
                 with st.spinner("Analyse en cours avec Phi-3..."):
-                    # Créer le prompt
                     prompt = create_prompt(user_input.strip())
-    
-                    # Interroger Ollama
                     response = query_ollama(prompt)
-                    
-                    # Parser la réponse
                     parsed_result = parse_response(response)
                     
                     if parsed_result:
@@ -163,8 +155,7 @@ def main():
                 st.write(f"Erreur: {str(e)}")
         else:
             st.write("Veuillez saisir une demande")
-    
-    # Section d'informations
+            
     st.sidebar.write(f"Modèle utilisé: {MODEL_NAME}")
     st.sidebar.write("Type: Few-shot learning local")
     st.sidebar.write("Exemples dans le prompt: 10")

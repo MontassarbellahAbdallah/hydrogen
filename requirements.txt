@@ -3,3 +3,13 @@ google-generativeai>=0.3.0
 python-dotenv>=1.0.0
 langchain>=0.0.300
 langchain_google_genai>=0.0.5
+# Requirements pour Ollama local
+ollama>=0.1.0
+#Requirements pour le fine-tuning
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+peft>=0.7.0
+accelerate>=0.24.0
+bitsandbytes>=0.41.0
+sentencepiece>=0.1.99
