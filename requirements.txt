@@ -13,3 +13,8 @@ peft>=0.7.0
 accelerate>=0.24.0
 bitsandbytes>=0.41.0
 sentencepiece>=0.1.99
+# Requirements pour l'évaluation du modèle
+scikit-learn>=1.3.0
+pandas>=1.5.0
+numpy>=1.24.0
+

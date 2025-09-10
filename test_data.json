@@ -1,0 +1,506 @@
+[
+  {
+    "texte": "Est-ce que je peux louer une voiture demain matin à 9h ?",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "9h",
+      "date": "demain matin",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "J'aimerais faire passer un message au médecin Renault",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Renault"
+    }
+  },
+  {
+    "texte": "Est-ce que le médecin Lemoine a de la place demain après-midi ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "demain après-midi",
+      "nom_docteur": "médecin Lemoine"
+    }
+  },
+  {
+    "texte": "Je peux voir le Dr Ahmed vendredi à 17h45 ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "17h45",
+      "date": "vendredi",
+      "nom_docteur": "Dr Ahmed"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une chambre d’hôtel pour le 12 août à Paris.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "12 août",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je souhaite voir le Docteur Blanchet le matin du 20 février.",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "matin",
+      "date": "20 février",
+      "nom_docteur": "Docteur Blanchet"
+    }
+  },
+  {
+    "texte": "Message pour le docteur Meunier : puis-je reprendre le sport ?",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "docteur Meunier"
+    }
+  },
+  {
+    "texte": "Je souhaite prendre RDV avec le médecin Lopez le 20 février",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "20 février",
+      "nom_docteur": "médecin Lopez"
+    }
+  },
+  {
+    "texte": "Transmettez au médecin Roy que j'ai besoin d'une consultation de suivi",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Roy"
+    }
+  },
+  {
+    "texte": "Message urgent pour le docteur Payet : saignements anormaux",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "docteur Payet"
+    }
+  },
+  {
+    "texte": "Transmettez au médecin Richard mes remerciements pour son aide",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Richard"
+    }
+  },
+  {
+    "texte": "Je veux réserver un créneau de squash jeudi à 20h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "20h",
+      "date": "jeudi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Consultation médecin Roy vendredi à 8h30 du matin",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "8h30 du matin",
+      "date": "vendredi",
+      "nom_docteur": "médecin Roy"
+    }
+  },
+  {
+    "texte": "Consultation avec le Dr Moreau demain à 9h précises",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "9h précises",
+      "date": "demain",
+      "nom_docteur": "Dr Moreau"
+    }
+  },
+  {
+    "texte": "Merci de réserver une chambre d’hôtel pour deux nuits à partir du 5 mai.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "5 mai",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "RDV avec le Dr Mbaye le 4 juillet à 11h",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "11h",
+      "date": "4 juillet",
+      "nom_docteur": "Dr Mbaye"
+    }
+  },
+  {
+    "texte": "Réservation d’un taxi pour l’aéroport mardi à 6h du matin.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "6h",
+      "date": "mardi matin",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une séance de maquillage vendredi matin à 11h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "11h",
+      "date": "vendredi matin",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Pouvez-vous dire au Dr Rousseau que j'ai perdu mon ordonnance ?",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Rousseau"
+    }
+  },
+  {
+    "texte": "Je voudrais laisser un message au Dr Clement pour annuler ma consultation",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Clement"
+    }
+  },
+  {
+    "texte": "RDV Dr Traore mardi prochain à dix heures",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "dix heures",
+      "date": "mardi prochain",
+      "nom_docteur": "Dr Traore"
+    }
+  },
+  {
+    "texte": "Est-ce que je peux voir le docteur Dupont lundi matin vers 9h30 ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "9h30",
+      "date": "lundi matin",
+      "nom_docteur": "docteur Dupont"
+    }
+  },
+  {
+    "texte": "Pouvez-vous informer le Dr Leroux d'un problème avec mon traitement ?",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Leroux"
+    }
+  },
+  {
+    "texte": "Je veux un rendez-vous avec le médecin Ly vendredi matin",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "vendredi matin",
+      "nom_docteur": "médecin Ly"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une place au théâtre samedi soir à 20h30.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "20h30",
+      "date": "samedi soir",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une sortie cinéma dimanche après-midi à 16h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "16h",
+      "date": "dimanche après-midi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Pouvez-vous réserver une chambre d’hôtel pour deux adultes du 2 au 5 juillet ?",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "2 au 5 juillet",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je souhaite réserver une séance d’escalade vendredi à 17h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "17h",
+      "date": "vendredi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "RDV avec le médecin Mercier le 25 mai à 13h45",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "13h45",
+      "date": "25 mai",
+      "nom_docteur": "médecin Mercier"
+    }
+  },
+  {
+    "texte": "Message pour le docteur Ahmed concernant mes migraines",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "docteur Ahmed"
+    }
+  },
+  {
+    "texte": "Réserver un créneau chez le garagiste vendredi à 15h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "15h",
+      "date": "vendredi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je peux voir le docteur Barry samedi à 16h15 ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "16h15",
+      "date": "samedi",
+      "nom_docteur": "docteur Barry"
+    }
+  },
+  {
+    "texte": "Merci de réserver deux places de théâtre pour mardi soir à 19h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "19h",
+      "date": "mardi soir",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je peux voir le docteur Vincent lundi après-midi vers 16h ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "16h",
+      "date": "lundi après-midi",
+      "nom_docteur": "docteur Vincent"
+    }
+  },
+  {
+    "texte": "Pouvez-vous informer le médecin Roux de l'évolution de mon état ?",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Roux"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une table pour deux personnes au restaurant italien samedi soir à 20h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "20h",
+      "date": "samedi soir",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je souhaite transmettre un message au médecin Khalil concernant les résultats de ma prise de sang.",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Khalil"
+    }
+  },
+  {
+    "texte": "Message pour Docteur Lefèvre : j’ai perdu mon ordonnance.",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Docteur Lefèvre"
+    }
+  },
+  {
+    "texte": "Je voudrais voir le docteur Picard samedi dans l'après-midi",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "samedi dans l'après-midi",
+      "nom_docteur": "docteur Picard"
+    }
+  },
+  {
+    "texte": "Rendez-vous avec le Dr Bertrand mardi à quinze heures trente",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "quinze heures trente",
+      "date": "mardi",
+      "nom_docteur": "Dr Bertrand"
+    }
+  },
+  {
+    "texte": "Pouvez-vous m’inscrire à un atelier de cuisine samedi matin à 9h30 ?",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "9h30",
+      "date": "samedi matin",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Transmettez au Dr Leroy que je me sens mieux depuis la dernière visite",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Leroy"
+    }
+  },
+  {
+    "texte": "Je veux consulter le médecin Rivière mardi à treize heures",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "treize heures",
+      "date": "mardi",
+      "nom_docteur": "médecin Rivière"
+    }
+  },
+  {
+    "texte": "Je voudrais laisser un message au médecin Lefebvre pour une question",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Lefebvre"
+    }
+  },
+  {
+    "texte": "Est-il possible de voir le Dr Meunier demain matin à 9h45 ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "9h45",
+      "date": "demain matin",
+      "nom_docteur": "Dr Meunier"
+    }
+  },
+  {
+    "texte": "Consultation Dr Arnaud mercredi à quinze heures quinze",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "quinze heures quinze",
+      "date": "mercredi",
+      "nom_docteur": "Dr Arnaud"
+    }
+  },
+  {
+    "texte": "Pouvez-vous dire au médecin Lemoine que je déménage ?",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "médecin Lemoine"
+    }
+  },
+  {
+    "texte": "Est-ce que je peux voir Docteur André demain vers 17h ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "17h",
+      "date": "demain",
+      "nom_docteur": "Docteur André"
+    }
+  },
+  {
+    "texte": "Est-il possible de voir le Dr Fernandez le 18 janvier à 9h ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "9h",
+      "date": "18 janvier",
+      "nom_docteur": "Dr Fernandez"
+    }
+  },
+  {
+    "texte": "Je veux louer une salle de sport privée lundi matin à 8h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "8h",
+      "date": "lundi matin",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Merci de me prendre un rendez-vous chez le vétérinaire vendredi à 15h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "15h",
+      "date": "vendredi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je voudrais réserver une visite chez l’opticien mardi à 11h.",
+    "classification": "HORS_SUJET",
+    "entites": {
+      "heure": "11h",
+      "date": "mardi",
+      "nom_docteur": "NON_SPECIFIE"
+    }
+  },
+  {
+    "texte": "Je veux prévenir le Dr Petit que j’ai eu une réaction allergique.",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Petit"
+    }
+  },
+  {
+    "texte": "Transmettez au Dr Giraud que le traitement est efficace",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "Dr Giraud"
+    }
+  },
+  {
+    "texte": "Message pour le docteur Gonzalez : question sur mon traitement",
+    "classification": "MESSAGE",
+    "entites": {
+      "heure": "NON_SPECIFIE",
+      "date": "NON_SPECIFIE",
+      "nom_docteur": "docteur Gonzalez"
+    }
+  },
+  {
+    "texte": "Pouvez-vous réserver pour moi un rendez-vous vendredi 9h avec Dr Nadia ?",
+    "classification": "RESERVATION",
+    "entites": {
+      "heure": "9h",
+      "date": "vendredi",
+      "nom_docteur": "Dr Nadia"
+    }
+  }
+]
