@@ -1,6 +1,5 @@
 """
-Script de fine-tuning DÉFINITIF pour Phi-3 Mini
-Version avec gradients correctement activés
+Script de fine-tuning pour Phi-3 Mini
 """
 
 import json

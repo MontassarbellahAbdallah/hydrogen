@@ -4,6 +4,7 @@ import json
 import re
 
 # Configuration du modèle
+# Microsoft Phi-3-mini-4k-instruct
 MODEL_NAME = "phi3:mini"
 
 def get_few_shot_examples():
